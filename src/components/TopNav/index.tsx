@@ -31,5 +31,6 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontSize: 16,
+    color: 'black',
   },
 });

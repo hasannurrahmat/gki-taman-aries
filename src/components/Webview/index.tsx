@@ -1,15 +1,15 @@
 import {useEffect, useRef, useState} from 'react';
-import {requestCameraPermission} from '../util/permissions';
-import {BackHandler, Text, View} from 'react-native';
+import {requestCameraPermission} from '../../util/permissions';
+import {BackHandler} from 'react-native';
 import {WebView} from 'react-native-webview';
 import TopNav from '../TopNav';
 
-const BASE_URL = 'http://gkitamanaries.org/';
+const BASE_URL = 'https://gkitamanaries.org/';
 
 export default function Webview() {
   const webViewRef = useRef<any>(null);
   const [backPressed, setBackPressed] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(false);
+  // const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     requestCameraPermission();
@@ -38,23 +38,14 @@ export default function Webview() {
 
   return (
     <>
-      {loading ? (
-        <View>
-          <Text>Loading...</Text>
-        </View>
-      ) : (
-        <>
-          <TopNav webRef={webViewRef} />
-          <WebView
-            ref={webViewRef}
-            source={{uri: BASE_URL}}
-            allowsFileAccess={true}
-            allowFileAccessFromFileURLs={true}
-            allowUniversalAccessFromFileURLs={true}
-            onLoadEnd={() => setLoading(false)}
-          />
-        </>
-      )}
+      <TopNav webRef={webViewRef} />
+      <WebView
+        ref={webViewRef}
+        source={{uri: BASE_URL}}
+        allowsFileAccess={true}
+        allowFileAccessFromFileURLs={true}
+        allowUniversalAccessFromFileURLs={true}
+      />
     </>
   );
 }
