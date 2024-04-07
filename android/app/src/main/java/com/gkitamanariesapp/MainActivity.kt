@@ -1,4 +1,4 @@
-package com.gkitamanariesapp
+package com.prototype2
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity
