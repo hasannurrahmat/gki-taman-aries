@@ -23,7 +23,7 @@ export default function Webview() {
         setBackPressed(1);
         setTimeout(() => {
           setBackPressed(0);
-        }, 2000);
+        }, 500);
       }
       return true;
     };
