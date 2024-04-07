@@ -13,9 +13,7 @@ export const requestCameraPermission = async () => {
         buttonPositive: 'OK',
       },
     );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      ToastAndroid.show('You can use the camera', ToastAndroid.SHORT);
-    } else {
+    if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
       ToastAndroid.show('Camera permission denied', ToastAndroid.SHORT);
     }
   } catch (err) {
